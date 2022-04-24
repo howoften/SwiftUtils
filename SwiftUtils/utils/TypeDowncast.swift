@@ -26,12 +26,12 @@ extension CGFloat {
             self.init(_value.floatValue)
             return
         }
-        guard let stringValue = String(onlyString: optAny) else {
+        guard let stringValue = String(optAny: optAny) else {
             return nil
         }
-        let regex = "^[+-]*\\d*(\\.)\\d+$"
+        let regex = "^[+-]*\\d*(\\.)*\\d+$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
-        guard !predicate.evaluate(with: stringValue) else{
+        guard predicate.evaluate(with: stringValue) else {
             return nil
         }
         self.init(Float(stringValue) ?? 0)
