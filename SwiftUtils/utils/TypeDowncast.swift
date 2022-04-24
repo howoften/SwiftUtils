@@ -26,7 +26,7 @@ extension CGFloat {
             self.init(_value.floatValue)
             return
         }
-        guard let stringValue = String(optAny: optAny) else {
+        guard let stringValue = String(onlyString: optAny) else {
             return nil
         }
         let regex = "^[+-]*\\d*(\\.)*\\d+$"
